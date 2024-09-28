@@ -1,8 +1,8 @@
 public class MyArrays{
   public static void main(String[] args){
     System.out.println(arrayToString(new int[]{1, 2, 3, 4, 5}));
-    System.out.println(arrayToString(returnCopy(new int[5])));
-    System.out.println(arrayToString(concatArray(new int[5], new int[4])));
+    System.out.println(arrayToString(returnCopy(new int[]{1,2,3,4,5})));
+    System.out.println(arrayToString(concatArray(new int[]{1,2,3,4,5}, new int[]{6,7,8})));
   }
   public static String arrayToString(int[] nums){
     String s="[";
@@ -23,6 +23,12 @@ public class MyArrays{
   }
   public static int[] concatArray(int[]ary1,int[]ary2){
     int[] result = new int[ary1.length+ary2.length];
+    for(int i=0; i<ary1.length;i++){
+      result[i]=ary1[i];
+    }
+    for(int i=0; i<ary2.length;i++){
+      result[i+ary1.length]=ary2[i];
+    }
     return result;
   }
 }
