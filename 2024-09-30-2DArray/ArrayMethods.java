@@ -3,19 +3,27 @@ public class ArrayMethods{
   public static void main(String[]args){
     System.out.println("2d arrToString test:");
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6, 7}, {2, 4, 9}}));
-    System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}, {2}}));
-    System.out.println(arrToString(new int[][] {{2, 3, 4}, {}, {}}));
+    System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 64}, {2}}));
+    System.out.println(arrToString(new int[][] {{2, 43, 4}, {}, {}}));
     System.out.println(arrToString(new int[][] {{}, {}, {}}));
-    System.out.println(arrToString(new int[][] {{2, -3, 4}, {-5, -6}}));
+    System.out.println(arrToString(new int[][] {{12, -312, 4}, {-5, -6}}));
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}, {-2}, {}, {0, -2, 3}}));
 
     System.out.println("2d arr2Dsum test:");
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6, 7}, {2, 4, 9}}));
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {2}}));
+    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6, 7}, {2, 49, 9}}));
+    System.out.println(arr2DSum(new int[][] {{21, 35, 4}, {5, 6}, {2}}));
     System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {}, {}}));
     System.out.println(arr2DSum(new int[][] {{}, {}, {}}));
-    System.out.println(arr2DSum(new int[][] {{2, -3, 4}, {-5, -6}}));
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {-2}, {}, {0, -2, 3}}));
+    System.out.println(arr2DSum(new int[][] {{2, -39, 4}, {-5, -62}}));
+    System.out.println(arr2DSum(new int[][] {{20, 3, 4}, {5, 6}, {-2}, {}, {0, -2, 300}}));
+
+    System.out.println("2d swapRC test:");
+    System.out.println(arrToString(swapRC(new int[][] {{2, 3, 4}, {5, 6, 7}, {2, 4, 9}})));
+    System.out.println(arrToString(swapRC(new int[][] {{2, 3}, {5, 6}, {2, 4}})));
+    System.out.println(arrToString(swapRC(new int[][] {{9, 8, 7, 6, 5, 4, 3, 2, 1}, {1, 2, 3, 4, 5, 6, 7, 8, 9}})));
+    System.out.println(arrToString(swapRC(new int[][] {{1}, {6}})));
+    System.out.println(arrToString(swapRC(new int[][] {{2, -3, 4}, {-5, -6, 20}})));
+    System.out.println(arrToString(swapRC(new int[][] {{74}, {5}, {-2}, {-4}, {3}})));
 
 
   }
@@ -67,7 +75,15 @@ public class ArrayMethods{
     * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
     */
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int R = nums.length;
+    int C = nums[0].length;
+    int[][] newArr = new int[C][R];
+    for (int i = 0; i < R; i++) {
+      for(int j = 0; j < C; j++){
+        newArr[j][i]=nums[i][j];
+      }
+    }
+    return newArr;
   }
 
 }
