@@ -27,6 +27,14 @@ public class ArrayMethods{
 
     System.out.println("replaceNegative tests:");
     replaceNegative(new int[][] {{74}, {5}, {-2}, {-4}, {3}});
+    replaceNegative(new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+    replaceNegative(new int[][] {{-1, 2, 53}, {64, -5, 20}, {7, 18, -9}});
+    replaceNegative(new int[][] {{-1, 82, -3}, {-43, -5, 61}, {27, -8, 89}});
+    replaceNegative(new int[][] {{-1}});
+    replaceNegative(new int[][] {{9}});
+    replaceNegative(new int[][] {{-1, -26, -3, 74, 95}});
+    replaceNegative(new int[][] {{-1}, {-12}, {-9}, {6}, {5}});
+    replaceNegative(new int[][] {});
   }
 
   //2. Copy your arrToString method from before.
@@ -92,28 +100,18 @@ public class ArrayMethods{
   //-When the row number is the same as the column number replace
   //that negative with the value 1
   //-All other negatives replace with 0
-  public static void replaceNegative(int[][] vals)
-  {
-    int[][] out = new int[vals.length][vals.length];
-
-    for (int i = 0; i<vals.length; i++)
-    {
-      for (int j = 0; j<vals[i].length; j++)
-      {
-        if (vals[i][j]<0)
-        {
-          if (j == i)
-          {
-            out[i][j] = 1;
+  public static void replaceNegative(int[][] vals){
+    for (int i = 0; i<vals.length; i++){
+      for (int j = 0; j<vals[i].length; j++){
+        if (vals[i][j]<0){
+          if (j == i){
+             vals[i][j] = 1;
           }
-          else
-            out[i][j] = 0;
+          else vals[i][j] = 0;
         }
-        else
-          out[i][j] = vals[i][j];
       }
     }
-    System.out.println(out);
+    System.out.println(arrToString(vals));
   }
 
   //4. Make a copy of the given 2d array.
