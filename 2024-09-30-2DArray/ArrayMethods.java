@@ -6,9 +6,16 @@ public class ArrayMethods{
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}, {2}}));
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {}, {}}));
     System.out.println(arrToString(new int[][] {{}, {}, {}}));
-    System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}}));
-    System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}, {2}, {}, {0, 2, 3}}));
+    System.out.println(arrToString(new int[][] {{2, -3, 4}, {-5, -6}}));
+    System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}, {-2}, {}, {0, -2, 3}}));
 
+    System.out.println("2d arr2Dsum test:");
+    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6, 7}, {2, 4, 9}}));
+    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {2}}));
+    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {}, {}}));
+    System.out.println(arr2DSum(new int[][] {{}, {}, {}}));
+    System.out.println(arr2DSum(new int[][] {{2, -3, 4}, {-5, -6}}));
+    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {-2}, {}, {0, -2, 3}}));
 
 
   }
@@ -45,8 +52,14 @@ public class ArrayMethods{
     }
   /*Return the sum of all of the values in the 2D array */
   public static int arr2DSum(int[][]nums){
-    //use a nested loop to solve this
-    return 0;//place holder return value so it compiles.
+    int sum = 0;
+    for (int i = 0; i < nums.length; i++) {
+      for (int j = 0; j < nums[i].length; j++) {
+        sum += nums[i][j];
+      }
+    }
+
+    return sum;//place holder return value so it compiles.
   }
 
   /**Rotate an array by returning a new array with the rows and columns swapped.
