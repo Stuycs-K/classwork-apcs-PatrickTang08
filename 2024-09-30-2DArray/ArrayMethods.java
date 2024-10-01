@@ -9,13 +9,8 @@ public class ArrayMethods{
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}}));
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}, {2}, {}, {0, 2, 3}}));
 
-    System.out.println("arr2DSum test:");
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}{5, 6, 7}}));
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {2}}));
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {}, {}}));
-    System.out.println(arr2DSum(new int[][] {{}, {}, {}}));
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}}));
-    System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {2}, {}, {0, 2, 3}}));
+
+
   }
 
   //2. Copy your arrToString method from before.
@@ -41,15 +36,10 @@ public class ArrayMethods{
     public static String arrToString(int[][] nums){
       String s="[";
       for(int i=0; i<nums.length;i++){
-        s+="[";
-        for (int j = 0; j<nums[i].length; j++)
-        {
-          s+=nums[j];
-          if(i<nums.length-1){
-            s+=", ";
-          }
+        s+=arrToString(nums[i]);
+        if(i<nums.length-1){
+          s+=", ";
         }
-        s+="]";
       }
       return s+"]";
     }
