@@ -35,6 +35,14 @@ public class ArrayMethods{
     replaceNegative(new int[][] {{-1, -26, -3, 74, 95}});
     replaceNegative(new int[][] {{-1}, {-12}, {-9}, {6}, {5}});
     replaceNegative(new int[][] {});
+
+    System.out.println("2d copy test:");
+    System.out.println(arrToString(copy(new int[][] {{2, 3, 4}, {5, 6, 7}, {2, 49, 9}})));
+    System.out.println(arrToString(copy(new int[][] {{21, 35, 4}, {5, 6}, {2}})));
+    System.out.println(arrToString(copy(new int[][] {{2, 3, 4}, {}, {}})));
+    System.out.println(arrToString(copy(new int[][] {{}, {}, {}})));
+    System.out.println(arrToString(copy(new int[][] {{2, -39, 4}, {-5, -62}})));
+    System.out.println(arrToString(copy(new int[][] {{20, 3, 4}, {5, 6}, {-2}, {}, {0, -2, 300}})));
   }
 
   //2. Copy your arrToString method from before.
@@ -120,7 +128,14 @@ public class ArrayMethods{
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
-    return null;//placeholder so it compiles
+    int[][] copied=new int[nums.length][];
+    for(int i=0;i<nums.length;i++){
+      copied[i]=new int[nums[i].length];
+      for(int j=0;j<nums[i].length;j++){
+        copied[i][j]=nums[i][j];
+      }
+    }
+    return copied;//placeholder so it compiles
   }
 
 }
