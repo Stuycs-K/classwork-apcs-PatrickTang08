@@ -5,11 +5,16 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
-    System.out.println("Expected: 5. My method: "+countZeros2D(new int[][] {{0,1,2,3}, {1,2,3,4}, {0,0,0,0}})+".");
-    System.out.println("Expected: 0. My method: "+countZeros2D(new int[][] {{},{}})+".");
-    System.out.println("Expected: 1. My method: "+countZeros2D(new int[][] {{0,1,2,3}, {1,2,3,4}, {}})+".");
-    System.out.println("Expected: 3. My method: "+countZeros2D(new int[][] {{0}, {0}, {0}})+".");
-    System.out.println("Expected: 5. My method: "+countZeros2D(new int[][] {{0,1,2,3}, {1,2,30,4}, {4,20,50,9}})+".");
+    System.out.println("Expected: 5. My method: "+countZeros2D(new int[][] {{0,1,2,3}, {1,2,3,4}, {0,0,0,0}}));
+    System.out.println("Expected: 0. My method: "+countZeros2D(new int[][] {{},{}}));
+    System.out.println("Expected: 1. My method: "+countZeros2D(new int[][] {{0,1,2,3}, {1,2,3,4}, {}}));
+    System.out.println("Expected: 3. My method: "+countZeros2D(new int[][] {{0}, {0}, {0}}));
+    System.out.println("Expected: 5. My method: "+countZeros2D(new int[][] {{0,1,2,3}, {1,2,30,4}, {4,20,50,9}}));
+    System.out.println("My method: "+htmlTable(new int[][] {{0,1,2,3}, {1,2,30,4}, {4,20,50,9}}));
+    System.out.println("My method: "+htmlTable(new int[][] {{0,1,2,3}, {1,2,3,4}, {0,0,0,0}}));
+    System.out.println("My method: "+htmlTable(new int[][] {{},{}}));
+    System.out.println("My method: "+htmlTable(new int[][] {{0,1,2,3}, {1,2,3,4}, {}}));
+    System.out.println("My method: "+htmlTable(new int[][] {{0}, {0}, {0}}));
 
 
   }
@@ -124,6 +129,16 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String html="<table>";
+    for(int i=0;i<nums.length;i++){
+      html+="<tr>";
+      for(int j=0;j<nums[i].length;j++){
+        html+="<td>";
+        html+=nums[i][j];
+        html+="</td>";
+      }
+      html+="</tr>";
+    }
+    return html+"</table>";
   }
 }
