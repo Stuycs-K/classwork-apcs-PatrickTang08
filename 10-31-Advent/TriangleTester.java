@@ -7,16 +7,21 @@ public class TriangleTester{
     System.out.println(countTrianglesA("inputTri.txt"));
   }
   public static int countTrianglesA(String filename){
-    int a =0;
-    int b =0;
-    int c =0;
+    int out = 0;
+
     try
     {
       File file = new File(filename);
       Scanner sc= new Scanner(file);
-      a= sc.nextInt();
-      b= sc.nextInt();
-      c= sc.nextInt();
+      while(sc.hasNextInt())
+      {
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        if (a+b>c && a+c>b && b+c>a)
+          out++;
+      }
       sc.close();
     }
     catch (FileNotFoundException ex)
@@ -24,6 +29,6 @@ public class TriangleTester{
       System.out.println("File not found");
       return -9999999;
     }
-    return c;
+    return out;
   }
 }
