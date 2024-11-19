@@ -4,10 +4,9 @@ import java.util.*;
 public class Taxicab{
   public static void main(String[] args){
     String[]data= parse("Input.txt");
-    System.out.println(distance(data));
+    System.out.println(parse("Input.txt"));
   }
   public static String[] parse(String filename){
-    int out = 0;
     try{
       File file = new File(filename);
       Scanner sc= new Scanner(file);
@@ -15,10 +14,10 @@ public class Taxicab{
       return line.split(", ");
     }catch (Exception e)
     {
-      System.out.println("File not found");
-      return "Exception";
+      System.out.println("Exception");
+      String[]a=new String[1];
+      return a;
     }
-    return null;
   }
   public static int distance(String[]data){
     int x = 0, y = 0, dir = 0;
