@@ -1,14 +1,13 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
+
 
 public class Keypad{
   public static void main(String[] args){
     System.out.println(passcode("Input.txt"));
   }
-  public static int passcode(String filename){
-    int out = 0;
+  public static String passcode(String filename){
+    String out = "";
     try{
       File file = new File(filename);
       Scanner sc= new Scanner(file);
@@ -17,7 +16,7 @@ public class Keypad{
       int row=1;
       for(int i=0; sc.hasNextLine();i++){
         String line= sc.nextLine();
-        for(int j=0; j<line.length()-1;j++){
+        for(int j=0; j<line.length();j++){
           String dir=line.substring(j,j+1);
           if(dir.equals("U")){
             col-=1;
@@ -44,12 +43,12 @@ public class Keypad{
             row=2;
           }
         }
-        out=""+pad[col][row];
+        out+=""+pad[col][row];
       }
-    }catch (FileNotFoundException ex)
+    }catch (Exception ex)
     {
-      System.out.println("File not found");
-      return -9999999;
+      System.out.println("Exception");
+      return "";
     }
     return out;
   }
