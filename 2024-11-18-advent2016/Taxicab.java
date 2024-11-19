@@ -1,29 +1,31 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 public class Taxicab{
   public static void main(String[] args){
-    System.out.println(distance("Input.txt"));
+    String[]data= parse("Input.txt");
+    System.out.println(distance(data));
   }
-  public static int distance(String filename){
+  public static String[] parse(String filename){
     int out = 0;
     try{
       File file = new File(filename);
       Scanner sc= new Scanner(file);
-      while(sc.hasNextInt()){
-        String dir=sc.next();
-        int a = sc.nextInt();
-        if(dir.equals("L")){
-          out+=a;
-        }else out-=a;
-      }
-    }catch (FileNotFoundException ex)
+      String line = sc.nextLine();
+      return line.split(", ");
+    }catch (Exception e)
     {
       System.out.println("File not found");
-      return -9999999;
+      return "Exception";
     }
-    return out;
+    return null;
+  }
+  public static int distance(String[]data){
+    int x = 0, y = 0, dir = 0;
+    for(int i=0; i < data.length; i++){
+      String heading = data[i].substring(0,1);
+      int dis = Integer.parseInt(data[i].substring(1,2));
+    }
+    return 0;
   }
 }
