@@ -16,6 +16,12 @@ public class RoomID{
           String[] a = line.split("-");
           String code=a[a.length-1].substring(4,9);
           int id= Integer.parseInt(a[a.length-1].substring(0,3));
+          String[] alphabet = new String[]{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+          int[] count =new int[26];
+          for(int j=0; i<alphabet.length;j++){
+            icount[j]=count[j]+1;
+          }
+          System.out.println(Arrays.toString(alphabet));
           System.out.println(code);
           System.out.println(id);
           System.out.println(Arrays.toString(a));
