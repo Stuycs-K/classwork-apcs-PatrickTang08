@@ -17,21 +17,38 @@ public class RoomID{
           int id= Integer.parseInt(line.substring(line.length()-10,line.length()-7));
           String[] alphabet = new String[]{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
           int[] count =new int[26];
-          String name= line.substring(0,line.length()-11);
-          for(int j=0;j<name.length();j++){
-            for(int k=0;k<alphabet.length;k++){
+          String name = line.substring(0,line.length()-11);
+          for(int j = 0;j < name.length();j++){
+            for(int k = 0;k < alphabet.length;k++){
               if(name.substring(j,j+1).equals(alphabet[k])){
                 count[k]=count[k]+1;
               }
             }
           }
-          System.out.println(Arrays.toString(count));
-          System.out.println(name);
-          System.out.println(code);
-          System.out.println(id);
-          System.out.println(line);
+          int[] sortedIndices = new int[26];
+          for (int j=0;j < 26;j++) {
+              sortedIndices[j] = j;
+          }
+          for (int j=0;j < 26;j++) {
+              for (int k = j + 1;k < 26;k++) {
+                  if (count[sortedIndices[k]] > count[sortedIndices[j]]||(count[sortedIndices[k]]==count[sortedIndices[j]] && sortedIndices[k] < sortedIndices[j])) {
+                      int temp = sortedIndices[j];
+                      sortedIndices[j] = sortedIndices[k];
+                      sortedIndices[k] = temp;
+                  }
+              }
+          }
+          String realCode = "";
+          for (int j=0; j<5; j++) {
+              if (count[sortedIndices[j]] > 0) {
+                  realCode += (char) (sortedIndices[j] + 'a');
+              }
+          }
+          if (realCode.equals(code)) {
+              out += id;
+          }
         }
-        return 0;
+        return out;
       }catch (Exception ex){
       System.out.println("Exception");
       return 0;
