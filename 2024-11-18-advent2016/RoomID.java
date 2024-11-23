@@ -4,7 +4,7 @@ import java.util.*;
 
 public class RoomID{
   public static void main(String[] args){
-    System.out.println(idsum("Input.txt"));
+    System.out.println(northPole("Input.txt"));
   }
   public static int idsum(String filename){
     int out = 0;
@@ -49,7 +49,46 @@ public class RoomID{
           }
         }
         return out;
-      }catch (Exception ex){
+      }catch (Exception e){
+      System.out.println("Exception");
+      return 0;
+    }
+  }
+  public static int northPole(String filename){
+    int out = 0;
+      try{
+        File file = new File(filename);
+        Scanner sc= new Scanner(file);
+        for(int i=0;sc.hasNextLine();i++){
+          String line = sc.nextLine();
+          int id= Integer.parseInt(line.substring(line.length()-10,line.length()-7));
+          int shift= id % 26;
+          String[] alphabet = new String[]{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+          String[] codedAlphabet = new String[26];
+          String name = line.substring(0,line.length()-11);
+          String[] message = name.split("-");
+          String text = "";
+          for(int j=0; j<26;j++){
+            codedAlphabet[j] = alphabet[(j + shift) % 26];
+          }
+          for(int j=0;j<message.length;j++){
+            String word = message[j];
+            for(int k=0;k<word.length();k++){
+              for(int l=0;l<26;l++){
+                if(word.substring(k,k+1).equals(alphabet[l])){
+                  text+=codedAlphabet[l];
+                }
+              }
+            }
+            text+=" ";
+
+          }
+          if(text.substring(0,9).equals("northpole")) {
+            System.out.println(text + " " +id);
+          }
+        }
+        return 0;
+      }catch (Exception e){
       System.out.println("Exception");
       return 0;
     }
