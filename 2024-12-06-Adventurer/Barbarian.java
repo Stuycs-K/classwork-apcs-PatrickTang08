@@ -5,9 +5,13 @@ public class Barbarian extends Adventurer{
 
   public Barbarian(String name){
     super(name);
+    rage=10;
+    maxRage=10;
   }
   public Barbarian(String name, int hp){
     super(name,hp);
+    rage=10;
+    maxRage=10;
   }
 
   /*
