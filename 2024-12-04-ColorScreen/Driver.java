@@ -20,6 +20,7 @@ public class Driver{
         System.out.print(nums[i]);
     }
     drawHorizontalSeparator(3,80);
+    drawSmileyFace(80,30);
     System.out.println(Text.RESET);
     Text.go(31, 1);
   }
@@ -44,4 +45,40 @@ public class Driver{
         System.out.print("-");
     }
   }
+  public static void drawSmileyFace(int width, int height) {
+    int centerRow= height/2;
+    int centerCol= width/2;
+    Text.color(Text.YELLOW, Text.background(Text.BLACK), Text.BRIGHT);
+    Text.go(centerRow-5,centerCol-20);
+    System.out.print("Making this face took way longer than it should have...");
+    Text.color(Text.RED, Text.background(Text.BLACK), Text.BRIGHT);
+    Text.go(centerRow-2,centerCol-4);
+    System.out.print("O");
+    Text.go(centerRow-2,centerCol+4);
+    System.out.print("O");
+    Text.go(centerRow-1,centerCol-4);
+    System.out.print("-");
+    Text.go(centerRow-1,centerCol+4);
+    System.out.print("-");
+    Text.go(centerRow,centerCol);
+    System.out.print("-");
+    Text.go(centerRow+3,centerCol-4);
+    System.out.print("|");
+    Text.go(centerRow+2,centerCol-3);
+    System.out.print("_");
+    Text.go(centerRow+2,centerCol-2);
+    System.out.print("_");
+    Text.go(centerRow+2,centerCol-1);
+    System.out.print("_");
+    Text.go(centerRow+2,centerCol);
+    System.out.print("_");
+    Text.go(centerRow+2,centerCol+1);
+    System.out.print("_");
+    Text.go(centerRow+2,centerCol+2);
+    System.out.print("_");
+    Text.go(centerRow+2,centerCol+3);
+    System.out.print("_");
+    Text.go(centerRow+3,centerCol+4);
+    System.out.print("|");
+}
 }
