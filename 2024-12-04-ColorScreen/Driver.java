@@ -19,6 +19,7 @@ public class Driver{
         }else Text.color(Text.WHITE);
         System.out.print(nums[i]);
     }
+    drawHorizontalSeparator(3,80);
     System.out.println(Text.RESET);
     Text.go(31, 1);
   }
@@ -34,6 +35,13 @@ public class Driver{
         System.out.print("o");
         Text.go(row,width);
         System.out.print("o");
+    }
+  }
+  public static void drawHorizontalSeparator(int row, int width) {
+    Text.color(Text.BLUE, Text.background(Text.BLUE), Text.BRIGHT);
+    for(int col= 1;col<=width;col++) {
+        Text.go(row,col);
+        System.out.print("-");
     }
   }
 }
