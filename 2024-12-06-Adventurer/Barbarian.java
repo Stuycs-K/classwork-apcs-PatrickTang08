@@ -54,6 +54,7 @@ public class Barbarian extends Adventurer{
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
     other.setHP(other.getHP()-5);
+    this.rage=this.getSpecial()-1;
     return this.getName()+ " rolls on "+other.getName()+".";
   }
 }
