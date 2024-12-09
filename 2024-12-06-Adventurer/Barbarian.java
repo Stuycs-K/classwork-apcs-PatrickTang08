@@ -20,7 +20,7 @@ public class Barbarian extends Adventurer{
   */
   //give it a short name (fewer than 13 characters)
   public String getSpecialName(){
-    return "Barbarian Barrel";
+    return "Barb Barrel";
   }
   public int getSpecial(){
     return rage;
@@ -52,7 +52,7 @@ public class Barbarian extends Adventurer{
   //heall or buff self
   public String support(){
     this.setHP(this.getHP()+1);
-    return this.getName()+ " heals "+this.getName()+".";
+    return this.getName()+ " self-heals.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
