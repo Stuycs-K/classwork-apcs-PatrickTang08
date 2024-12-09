@@ -39,26 +39,31 @@ public class Barbarian extends Adventurer{
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
-    other.setHP(other.getHP()-3);
-    return this.getName()+ " stabs "+other.getName()+".";
+    other.applyDamage(5);
+    this.restoreSpecial(1);
+    return this+ " stabs "+other+".";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
     other.setHP(other.getHP()+1);
-    return this.getName()+ " heals "+other.getName()+".";
+    other.restoreSpecial(3);
+    return this+ " gives "+other+" steroids.";
   }
 
   //heall or buff self
   public String support(){
     this.setHP(this.getHP()+1);
-    return this.getName()+ " self-heals.";
+    this.restoreSpecial(3);
+    return this+ " takes drugs.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    other.setHP(other.getHP()-5);
-    this.rage=this.getSpecial()-1;
-    return this.getName()+ " rolls on "+other.getName()+".";
+    if(this.getSpecial()>=5){
+      other.applyDamage(7);
+      this.rage=this.getSpecial()-5;
+    }
+    return this+ " rolls on "+other+".";
   }
 }
