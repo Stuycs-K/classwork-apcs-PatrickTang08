@@ -63,7 +63,7 @@ public class Barbarian extends Adventurer{
     if(this.getSpecial()>=5){
       other.applyDamage(7);
       this.rage=this.getSpecial()-5;
-    }
+    }else attack(other);
     return this+ " rolls on "+other+".";
   }
 }
