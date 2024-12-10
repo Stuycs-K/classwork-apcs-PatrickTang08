@@ -3,15 +3,16 @@ public class Barbarian extends Adventurer{
   private int HP,maxHP;
   private int rage,maxRage;
 
-  public Barbarian(String name){
-    super(name);
-    rage=6;
-    maxRage=10;
-  }
   public Barbarian(String name, int hp){
     super(name,hp);
     rage=6;
     maxRage=10;
+  }
+  public Barbarian(String name){
+    this(name,10);
+  }
+  public Barbarian(){
+    this("Barry");
   }
 
   /*
@@ -38,10 +39,12 @@ public class Barbarian extends Adventurer{
     support their allys
   */
   //hurt or hinder the target adventurer
+  //3-5 dmg
   public String attack(Adventurer other){
-    other.applyDamage(4);
+    int damage= (int)(Math.random()*3)+3;
+    other.applyDamage(damage);
     restoreSpecial(1);
-    return this+ " stabbed "+other+" and dealt 4 damage.";
+    return this+ " stabbed "+other+" and dealt "+damage+" damage.";
   }
 
   //heall or buff the target adventurer
@@ -59,13 +62,14 @@ public class Barbarian extends Adventurer{
   }
 
   //hurt or hinder the target adventurer, consume some special resource
+  //3-8 dmg
   public String specialAttack(Adventurer other){
-    if(this.getSpecial()>=6){
-      other.applyDamage(6);
-      this.rage=this.getSpecial()-6;
+    if(getSpecial()>=6){
+      int damage= (int)(Math.random()*3+Math.random()*3)+3;
+      other.applyDamage(damage);
+      setSpecial(getSpecial()-6);
     }else{
-      attack(other);
-      return "Not angry enough to use Battle Ram. "+this+ " stabbed "+other+" and dealt 4 damage.";
+      return "Not angry enough to use Battle Ram. "+attack(other);
     }
     return this+ " took a big log and charged at "+other+", knocking them down and dealing 6 damage.";
   }
