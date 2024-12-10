@@ -5,12 +5,12 @@ public class Barbarian extends Adventurer{
 
   public Barbarian(String name){
     super(name);
-    rage=10;
+    rage=6;
     maxRage=10;
   }
   public Barbarian(String name, int hp){
     super(name,hp);
-    rage=10;
+    rage=6;
     maxRage=10;
   }
 
@@ -20,7 +20,7 @@ public class Barbarian extends Adventurer{
   */
   //give it a short name (fewer than 13 characters)
   public String getSpecialName(){
-    return "Barb Barrel";
+    return "Battle Ram";
   }
   public int getSpecial(){
     return rage;
@@ -39,31 +39,34 @@ public class Barbarian extends Adventurer{
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
-    other.applyDamage(5);
-    this.restoreSpecial(1);
-    return this+ " stabs "+other+".";
+    other.applyDamage(4);
+    restoreSpecial(1);
+    return this+ " stabbed "+other+" and dealt 4 damage.";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
     other.setHP(other.getHP()+1);
     other.restoreSpecial(3);
-    return this+ " gives "+other+" steroids.";
+    return this+ " gived "+other+" steroids to heal 1 HP and restore 3 rage.";
   }
 
   //heall or buff self
   public String support(){
-    this.setHP(this.getHP()+1);
-    this.restoreSpecial(3);
-    return this+ " takes drugs.";
+    setHP(getHP()+1);
+    restoreSpecial(3);
+    return this+ " took anger-inducing pills to heal 1 HP and restore 3 rage.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    if(this.getSpecial()>=5){
-      other.applyDamage(7);
-      this.rage=this.getSpecial()-5;
-    }else attack(other);
-    return this+ " rolls on "+other+".";
+    if(this.getSpecial()>=6){
+      other.applyDamage(6);
+      this.rage=this.getSpecial()-6;
+    }else{
+      attack(other);
+      return "Not angry enough to use Battle Ram. "+this+ " stabbed "+other+" and dealt 4 damage.";
+    }
+    return this+ " took a big log and charged at "+other+", knocking them down and dealing 6 damage.";
   }
 }
