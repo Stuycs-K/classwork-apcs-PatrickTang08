@@ -1,8 +1,9 @@
 public class Fibonacci{
   public static void main(String[] args) {
-    System.out.println(fib(47));
+    int num=Integer.parseInt(args[0]);
+    System.out.println(fib(num));
   }
-  public static long fib(long n){
+  public static int fib(int n){
     if(n>1){
       return fib(n-1)+fib(n-2);
     }else return n;
